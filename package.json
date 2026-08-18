@@ -1,0 +1,53 @@
+{
+  "name": "superset-docs-theme",
+  "version": "0.1.0",
+  "description": "Preset/tema Docusaurus 3 reutilizável para documentação de projetos da organização superset-by-kelsoncm, inspirado nos developer-docs do Apache Superset.",
+  "keywords": [
+    "docusaurus",
+    "docusaurus-theme",
+    "docusaurus-plugin",
+    "apache-superset",
+    "documentation"
+  ],
+  "license": "Apache-2.0",
+  "author": "Kelson da Costa Medeiros <kelsoncm@gmail.com>",
+  "homepage": "https://github.com/superset-by-kelsoncm/superset-docs-theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superset-by-kelsoncm/superset-docs-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/superset-by-kelsoncm/superset-docs-theme/issues"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepare": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "website:start": "npm --prefix website start",
+    "website:build": "npm --prefix website run build"
+  },
+  "peerDependencies": {
+    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/preset-classic": "^3.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^3.6.0",
+    "@docusaurus/types": "^3.6.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
+}

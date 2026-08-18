@@ -1,0 +1,48 @@
+/**
+ * superset-docs-theme — design tokens
+ * Sobrescreve as variáveis Infima do Docusaurus com a identidade visual
+ * padrão da organização superset-by-kelsoncm (azul DSGovBR / Superset).
+ * Cada projeto pode sobrescrever estas variáveis no seu próprio CSS.
+ */
+
+:root {
+  --ifm-color-primary: #1351b4;
+  --ifm-color-primary-dark: #113f8f;
+  --ifm-color-primary-darker: #0c326f;
+  --ifm-color-primary-darkest: #092654;
+  --ifm-color-primary-light: #2670e8;
+  --ifm-color-primary-lighter: #4c8dff;
+  --ifm-color-primary-lightest: #7bacff;
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(19, 81, 180, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #2670e8;
+  --ifm-color-primary-dark: #1a5fd6;
+  --ifm-color-primary-darker: #1854be;
+  --ifm-color-primary-darkest: #12419a;
+  --ifm-color-primary-light: #4c8dff;
+  --ifm-color-primary-lighter: #6fa2ff;
+  --ifm-color-primary-lightest: #a3c4ff;
+
+  --docusaurus-highlighted-code-line-bg: rgba(38, 112, 232, 0.2);
+}
+
+.superset-docs-theme-poweredby {
+  text-align: center;
+  padding: 0.75rem 0;
+  font-size: 0.8rem;
+  color: var(--ifm-footer-color);
+  background: var(--ifm-footer-background-color);
+}
+
+.superset-docs-theme-poweredby a {
+  color: var(--ifm-color-primary-lighter);
+  text-decoration: none;
+}
+
+.superset-docs-theme-poweredby a:hover {
+  text-decoration: underline;
+}
