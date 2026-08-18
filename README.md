@@ -14,8 +14,8 @@ Um **tema/preset Docusaurus 3 reutilizável** criado para os projetos de documen
 - 🎨 **Paleta padrão inspirada no DSGovBR/Superset** (`#1351b4`), alinhada ao [superset-theme-dsgovbr](https://github.com/superset-by-kelsoncm/superset-theme-dsgovbr).
 - 🌙 **Modo Escuro (Dark Mode)**: suporte nativo via Infima, com `respectPrefersColorScheme`.
 - ⚙️ **Customização Simples**: cores, logo e links de navbar configuráveis via `docusaurus.config.ts`.
-- 🦶 **Rodapé customizado**: selo "Powered by superset-docs-theme" (desativável).
-- 🧩 **Distribuído como plugin Docusaurus**: `getThemePath`, `getTypeScriptThemePath` e `getClientModules`, sobrescrevível via [swizzle](https://docusaurus.io/docs/swizzling).
+- 🦶 **Selo "Powered by superset-docs-theme"** no rodapé, via `themeConfig` (desativável).
+- 🧩 **Distribuído como plugin Docusaurus**: injeta o CSS globalmente via `getClientModules`.
 - 📦 **Automação npm & GitHub Actions**: publicação automática no npm a cada release (com provenance), build e deploy dos docs no GitHub Pages via Actions.
 
 ---
@@ -53,7 +53,6 @@ export default {
       {
         primaryColor: '#1351b4',
         secondaryColor: '#2670e8',
-        showPoweredBy: true,
       },
     ],
   ],
@@ -62,6 +61,7 @@ export default {
       projectName: 'Meu Projeto',
       githubUrl: 'https://github.com/superset-by-kelsoncm/meu-projeto',
       logo: {alt: 'Meu Projeto', src: 'img/logo.svg'},
+      showPoweredBy: true,
     }),
   },
 };
@@ -77,16 +77,16 @@ export default {
 | :--- | :--- | :--- |
 | `primaryColor` | `#1351b4` | Cor primária (navbar, links, destaques). |
 | `secondaryColor` | `#2670e8` | Cor secundária usada em hover/destaques. |
-| `showPoweredBy` | `true` | Exibe o selo "Powered by superset-docs-theme" no rodapé. |
 
 ### `getDefaultThemeConfig()`
 
-| Opção | Descrição |
-| :--- | :--- |
-| `projectName` | Nome exibido na navbar e no rodapé. |
-| `githubUrl` | Link do repositório, exibido na navbar. |
-| `logo` | `{ alt, src, srcDark? }` — logo do projeto em `static/img/`. |
-| `navbarLinks` | Itens adicionais de navbar (mesclados antes do link do GitHub). |
+| Opção | Padrão | Descrição |
+| :--- | :--- | :--- |
+| `projectName` | — | Nome exibido na navbar e no rodapé. |
+| `githubUrl` | — | Link do repositório, exibido na navbar. |
+| `logo` | — | `{ alt, src, srcDark? }` — logo do projeto em `static/img/`. |
+| `navbarLinks` | `[]` | Itens adicionais de navbar (mesclados antes do link do GitHub). |
+| `showPoweredBy` | `true` | Inclui "Construído com superset-docs-theme" no copyright do rodapé. |
 
 ---
 
@@ -114,9 +114,8 @@ superset-docs-theme/
 │       ├── ci.yml             # type-check, build e deploy dos docs no GitHub Pages
 │       └── publish-npm.yml    # publicação automática no npm a cada release
 ├── src/                       # código-fonte do plugin/tema (TypeScript)
-│   ├── index.ts                # plugin Docusaurus (getThemePath, getClientModules...)
-│   ├── themeConfig.ts          # helper getDefaultThemeConfig()
-│   ├── theme/Footer/           # componente de rodapé sobrescrito
+│   ├── index.ts                # plugin Docusaurus (getClientModules)
+│   ├── themeConfig.ts          # helper getDefaultThemeConfig() (navbar/footer/prism)
 │   └── css/custom.css          # design tokens (paleta DSGovBR/Superset)
 ├── website/                   # documentação oficial do tema (dogfooding)
 │   ├── docusaurus.config.ts

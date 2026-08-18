@@ -5,7 +5,7 @@ import supersetDocsTheme, {getDefaultThemeConfig} from 'superset-docs-theme';
 const config: Config = {
   title: 'superset-docs-theme',
   tagline: 'Tema Docusaurus reutilizável para os projetos da organização superset-by-kelsoncm',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   url: 'https://superset-by-kelsoncm.github.io',
   baseUrl: '/superset-docs-theme/',

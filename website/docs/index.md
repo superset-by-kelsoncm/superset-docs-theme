@@ -11,8 +11,8 @@ O objetivo é manter uma identidade visual padronizada — alinhada à paleta do
 ## Recursos principais
 
 - 🎨 Paleta padrão inspirada no DSGovBR/Superset (`#1351b4`), com suporte nativo a modo claro/escuro (Infima + `respectPrefersColorScheme`).
-- 🧩 Distribuído como plugin Docusaurus (`getThemePath`, `getClientModules`), aplicável a qualquer site Docusaurus 3 existente.
-- 🦶 Rodapé customizado com selo "Powered by superset-docs-theme".
+- 🧩 Distribuído como plugin Docusaurus (`getClientModules`), aplicável a qualquer site Docusaurus 3 existente.
+- 🦶 Selo "Powered by superset-docs-theme" no rodapé (via `themeConfig`, desativável).
 - ⚙️ Função utilitária `getDefaultThemeConfig()` para gerar um `themeConfig` padrão (navbar, footer, Prism) em poucas linhas.
 - 📦 Publicação automática no npm via GitHub Actions a cada release.
 

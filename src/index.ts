@@ -6,19 +6,19 @@ export interface SupersetDocsThemeOptions {
   primaryColor?: string;
   /** Cor secundária usada em hover/destaques. */
   secondaryColor?: string;
-  /** Exibe o link "Powered by superset-docs-theme" no rodapé. */
-  showPoweredBy?: boolean;
 }
 
 const DEFAULT_OPTIONS: Required<SupersetDocsThemeOptions> = {
   primaryColor: '#1351b4',
   secondaryColor: '#2670e8',
-  showPoweredBy: true,
 };
 
 /**
  * Plugin de tema Docusaurus 3 reutilizável entre os repositórios de
- * documentação da organização superset-by-kelsoncm.
+ * documentação da organização superset-by-kelsoncm. Injeta apenas o CSS
+ * de design tokens (client module global) — não sobrescreve componentes
+ * via getThemePath, para evitar a recursão de alias `@theme-original`
+ * observada ao empilhar plugins de tema com o preset clássico.
  *
  * Uso em `docusaurus.config.ts`:
  *
@@ -39,30 +39,12 @@ export default function supersetDocsTheme(
   return {
     name: 'superset-docs-theme',
 
-    getThemePath() {
-      return path.resolve(__dirname, 'theme');
-    },
-
-    getTypeScriptThemePath() {
-      return path.resolve(__dirname, '..', 'src', 'theme');
-    },
-
     getClientModules() {
       return [path.resolve(__dirname, 'css', 'custom.css')];
     },
 
     async contentLoaded({actions}) {
       actions.setGlobalData(resolvedOptions);
-    },
-
-    configureWebpack() {
-      return {
-        resolve: {
-          alias: {
-            '@superset-docs-theme/css': path.resolve(__dirname, 'css'),
-          },
-        },
-      };
     },
   };
 }

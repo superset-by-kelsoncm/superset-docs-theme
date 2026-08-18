@@ -7,6 +7,8 @@ export interface SupersetThemeConfigOptions {
     srcDark?: string;
   };
   navbarLinks?: Array<Record<string, unknown>>;
+  /** Exibe "Construído com superset-docs-theme" no copyright do rodapé. */
+  showPoweredBy?: boolean;
 }
 
 /**
@@ -16,7 +18,11 @@ export interface SupersetThemeConfigOptions {
  * com suporte nativo a modo claro/escuro via Infima.
  */
 export default function getDefaultThemeConfig(options: SupersetThemeConfigOptions) {
-  const {projectName, githubUrl, logo, navbarLinks = []} = options;
+  const {projectName, githubUrl, logo, navbarLinks = [], showPoweredBy = true} = options;
+
+  const poweredBy = showPoweredBy
+    ? ' · Construído com <a href="https://github.com/superset-by-kelsoncm/superset-docs-theme">superset-docs-theme</a>'
+    : '';
 
   return {
     colorMode: {
@@ -46,7 +52,7 @@ export default function getDefaultThemeConfig(options: SupersetThemeConfigOption
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} ${projectName}. Construído com superset-docs-theme.`,
+      copyright: `Copyright © ${new Date().getFullYear()} ${projectName}.${poweredBy}`,
     },
     prism: {
       additionalLanguages: ['python', 'bash', 'json', 'yaml'],

@@ -14,16 +14,29 @@ Cada projeto pode sobrescrever as variáveis Infima no seu próprio `custom.css`
 }
 ```
 
-## Sobrescrevendo componentes (swizzle)
+## Sobrescrevendo o rodapé
 
-Como qualquer tema Docusaurus, os componentes de `superset-docs-theme` podem ser sobrescritos via [swizzle](https://docusaurus.io/docs/swizzling):
+`getDefaultThemeConfig()` só define um valor inicial para `themeConfig.footer` — como qualquer configuração do Docusaurus, basta espalhar (`...`) o retorno e sobrescrever o que for necessário:
 
-```bash
-npm run docusaurus swizzle superset-docs-theme Footer -- --wrap
+```ts
+themeConfig: {
+  ...getDefaultThemeConfig({
+    projectName: 'Meu Projeto',
+    githubUrl: 'https://github.com/superset-by-kelsoncm/meu-projeto',
+  }),
+  footer: {
+    style: 'dark',
+    links: [/* seus próprios links */],
+    copyright: 'Copyright © Meu Projeto',
+  },
+},
 ```
 
 ## Removendo o selo "Powered by"
 
 ```ts
-plugins: [[supersetDocsTheme, {showPoweredBy: false}]],
+getDefaultThemeConfig({
+  // ...
+  showPoweredBy: false,
+})
 ```

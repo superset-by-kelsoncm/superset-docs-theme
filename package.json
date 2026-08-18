@@ -29,7 +29,8 @@
     "provenance": true
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run copy:assets",
+    "copy:assets": "node -e \"require('fs').cpSync('src/css','lib/css',{recursive:true})\"",
     "watch": "tsc --watch",
     "prepare": "npm run build",
     "typecheck": "tsc --noEmit",
@@ -45,6 +46,8 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.6.0",
     "@docusaurus/types": "^3.6.0",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.0",
     "typescript": "^5.5.0"
   },
   "engines": {
