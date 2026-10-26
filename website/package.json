@@ -1,6 +1,6 @@
 {
   "name": "superset-docs-theme-website",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "Documentação oficial do superset-docs-theme, construída com o próprio tema (dogfooding).",
   "scripts": {
@@ -11,7 +11,9 @@
     "typecheck": "tsc --noEmit"
   },
   "overrides": {
-    "tinypool": "^2.1.2"
+    "tinypool": "^2.1.2",
+    "serialize-javascript": "^7.1.3",
+    "uuid": "^11.1.1"
   },
   "dependencies": {
     "@docusaurus/core": "^3.6.0",
