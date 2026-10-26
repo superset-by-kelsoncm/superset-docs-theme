@@ -1,6 +1,6 @@
 {
   "name": "superset-docs-theme",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Preset/tema Docusaurus 3 reutilizável para documentação de projetos da organização superset-by-kelsoncm, inspirado nos developer-docs do Apache Superset.",
   "keywords": [
     "docusaurus",
@@ -38,7 +38,9 @@
     "website:build": "npm --prefix website run build"
   },
   "overrides": {
-    "tinypool": "^2.1.2"
+    "tinypool": "^2.1.2",
+    "serialize-javascript": "^7.1.3",
+    "uuid": "^11.1.1"
   },
   "peerDependencies": {
     "@docusaurus/core": "^3.0.0",
